@@ -7,8 +7,10 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "bluebird": "^2.9.34",
     "express": "^4.13.2",
     "firebase": "^2.2.9",
+    "lodash": "^3.10.0",
     "postmates": "^1.0.2",
     "square-connect": "0.0.2"
   },
