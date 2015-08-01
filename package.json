@@ -1,5 +1,5 @@
 {
-  "name": "Hello Deliveries",
+  "name": "hello-deliveries",
   "version": "0.0.1",
   "description": "Deliveries management",
   "main": "index.js",
@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "express": "^4.13.2",
+    "firebase": "^2.2.9",
     "postmates": "^1.0.2",
     "square-connect": "0.0.2"
   },
