@@ -1,0 +1,27 @@
+{
+  "name": "Hello Deliveries",
+  "version": "0.0.1",
+  "description": "Deliveries management",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.2",
+    "postmates": "^1.0.2",
+    "square-connect": "0.0.2"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}

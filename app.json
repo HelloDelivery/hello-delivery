@@ -1,0 +1,8 @@
+{
+  "name": "Hello Deliveries",
+  "description": "Deliveries management",
+  "repository": "https://github.com/HelloDelivery/hello-delivery",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"]
+}
+
