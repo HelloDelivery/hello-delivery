@@ -94,6 +94,7 @@ module.exports = function (req, res) {
 
       // Delivery info
       data.delivery = response.body;
+      data.delivery_history = [data.delivery];
 
       var url = config.firebase.url + '/orders/' + data.delivery.id;
       var firebaseRef = new Firebase(url);
