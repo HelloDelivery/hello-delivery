@@ -68,5 +68,8 @@ module.exports = function (req, res) {
       var url = config.firebase.url + '/orders/' + data.delivery.id;
       var firebaseRef = new Firebase(url);
       firebaseRef.set(data);
-    };
+
+      // Send the response
+      res.send()
+    });
 };
