@@ -61,7 +61,7 @@ module.exports = function (req, res) {
       });
 
     }).then(function (res) {
-
-      // Push the data to firebase
-    });
-};
+      var url = "https://hellodeliveries.firebaseio.com/orders/"
+      var firebaseRef = new Firebase(url);
+      firebaseRef.push(data);
+    };
