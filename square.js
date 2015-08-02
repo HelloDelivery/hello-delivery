@@ -94,11 +94,15 @@ module.exports = function (req, res) {
 
       // Delivery info
       data.delivery = response.body;
-      data.delivery_history = [data.delivery];
 
+      // Push data
       var url = config.firebase.url + '/orders/' + data.delivery.id;
       var firebaseRef = new Firebase(url);
       firebaseRef.set(data);
+
+      // Push history
+      var deliveryHistoryRef = firebaseRef.child('delivery_history');
+      deliveryHistoryRef.push(data.delivery);
 
       // Send the response
       res.send()
