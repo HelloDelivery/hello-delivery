@@ -83,7 +83,11 @@ module.exports = function (req, res) {
         dropoff_address: stringifyAddress(data.order.shipping_address),
         dropoff_phone_number: formatNumber(data.order.recipient_phone_number),
         dropoff_notes: data.order.buyer_note,
-        quote_id: data.quote.id
+        quote_id: data.quote.id,
+        robo_pickup: "00:02:00",
+        robo_pickup_complete: "00:03:00",
+        robo_dropoff: "00:04:00",
+        robo_delivered: "00:05:00"
       });
 
     }).then(function (response) {
