@@ -8,6 +8,6 @@ module.exports = {
     apiKey: ''
   },
   firebase: {
-    url: ''
+    url: 'https://hellodeliveries.firebaseio.com/'
   }
 }

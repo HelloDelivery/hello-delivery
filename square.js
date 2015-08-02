@@ -7,10 +7,7 @@ var config = require('./config');
 
 // Setup the square client
 var square = new Square(config.square.apiKey);
-var postmates = new Postmates(config.customerId, config.apiKey)
-
-// Setup merchant
-console.log('hello')
+var postmates = new Postmates(config.postmates.customerId, config.postmates.apiKey)
 
 // Entry point
 module.exports = function (req, res) {
@@ -18,17 +15,20 @@ module.exports = function (req, res) {
   var data = {}
   var event = req.body;
 
-  // Get orders, payment
-
-  // Create in firebase
-  square.api('me/orders')
-    .then(function (res) {
+  // Get orders, payment, merchant
+  Promise.all({
+    orders: square.api('me/orders'),
+    payment: square.api('me/payments/' + event.entity_id),
+    merchant: square.api('me')
+  }).then(function (res) {
 
       // Load the orders
-      var orders = res.body;
+      var orders = res.orders.body;
 
       // Load the order
       data.order = _.find(orders, { payment_id: event.entity_id })
+      data.merchant = res.merchant.body;
+      data.payment = res.payment.body;
 
       // Quote
       return postmates.quote({
@@ -61,7 +61,12 @@ module.exports = function (req, res) {
       });
 
     }).then(function (res) {
-      var url = "https://hellodeliveries.firebaseio.com/orders/"
+
+      // Delivery info
+      data.delivery = res.body;
+
+      var url = config.firebase.url + '/orders/' + data.delivery.delivery_id;
       var firebaseRef = new Firebase(url);
-      firebaseRef.push(data);
+      firebaseRef.set(data);
     };
+};
