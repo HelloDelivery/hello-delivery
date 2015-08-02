@@ -7,7 +7,7 @@ module.exports = function (req, res) {
   var delivery = req.body.data;
 
   // Set the info to firebase
-  var url = config.firebase.url + '/orders/' + delivery.delivery_id + '/delivery';
+  var url = config.firebase.url + '/orders/' + delivery.id + '/delivery';
   var firebaseRef = new Firebase(url);
   firebaseRef.set(data);
 };
