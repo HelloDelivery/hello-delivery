@@ -65,8 +65,8 @@ module.exports = function (req, res) {
       // Delivery info
       data.delivery = res.body;
 
-      var url = config.firebase.url + '/orders';
+      var url = config.firebase.url + '/orders/' + data.delivery.delivery_id;
       var firebaseRef = new Firebase(url);
-      firebaseRef.push(data);
+      firebaseRef.set(data);
     };
 };
