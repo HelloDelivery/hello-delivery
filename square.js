@@ -76,7 +76,7 @@ module.exports = function (req, res) {
       return postmates.newAsync({
         manifest: _.pluck(data.payment.itemizations, 'name').join(', '),
         pickup_name: data.merchant.business_name,
-        pickup_address: stringifyAddress(data.merchant.shipping_address),
+        pickup_address: stringifyAddress(data.merchant.business_address),
         pickup_phone_number: formatNumber(data.merchant.business_phone),
         pickup_business_name: data.merchant.business_name,
         dropoff_name: data.order.recipient_name,
